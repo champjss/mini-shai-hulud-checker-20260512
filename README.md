@@ -10,9 +10,17 @@ References:
 
 ---
 
-## Am I compromised? — the playbook
+## Installation and usages
 
-**Setup:** Node.js 20+ is all you need — no `npm install`.
+### Prerequisites
+
+- **Node.js 20+** — required to run the CLI
+- **Git** — to clone this repo
+- Any of `npm` / `pnpm` / `yarn` (optional) — only needed if you want `check-global` to autodetect their respective global locations
+
+No external dependency (`npm install`) is needed.
+
+### Installation
 
 ```bash
 git clone https://github.com/champjss/mini-shai-hulud-checker-20260512.git
@@ -140,11 +148,11 @@ cat dist/lockfiles/npm.js
 node dist/cli.js --help
 ```
 
-**4. Build-time dependencies are only `typescript` and `@types/node`.** They never reach `dist/` (build is just `tsc` emitting `.js`). Skip this step entirely if you just want to run the checker.
+**4. Dev-time dependencies are only `typescript`, `@types/node`, and `@biomejs/biome`.** None reach `dist/` (the build is just `tsc` emitting `.js`; Biome runs only for `npm run format` / `npm run lint`). Skip this step entirely if you just want to run the checker.
 
 ```bash
 node -e "console.log(Object.keys(require('./package.json').devDependencies))"
-# → [ 'typescript', '@types/node' ]
+# → [ '@biomejs/biome', '@types/node', 'typescript' ]
 ```
 
 **5. The advisory data is committed in plain text — a CSV (from Socket.dev) and a small JSON for malicious file hashes.** Update history is tracked in git.
@@ -187,9 +195,9 @@ mini-shai-hulud-checker/
 │   │   ├── affected-packages.csv  Socket.dev CSV: all compromised npm rows
 │   │   └── file-hashes.json       known malicious file SHA-256 / SHA-1 / MD5
 │   └── test-fixtures/             hand-written lockfile + file fixtures
-├── test/                          node:test suite (12 cases, run via `npm test`)
+├── test/                          node:test suite (18 cases, run via `npm test`)
 ├── scripts/                       maintainer-only update + postbuild scripts
-├── package.json                   no `dependencies`; only `typescript` + `@types/node` as devDeps
+├── package.json                   no `dependencies`; only `typescript`, `@types/node`, `@biomejs/biome` as devDeps
 ├── tsconfig.json
 └── .vscode/                       Test Explorer config (optional)
 ```
