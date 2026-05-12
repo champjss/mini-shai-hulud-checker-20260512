@@ -1,0 +1,13 @@
+{
+  "nodejs-testing.include": ["test"],
+  "nodejs-testing.concurrency": 1,
+  "nodejs-testing.pretest": ["npm", "run", "build"],
+  "editor.defaultFormatter": "biomejs.biome",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports.biome": "explicit"
+  },
+  "search.exclude": {
+    "**/dist": true
+  }
+}

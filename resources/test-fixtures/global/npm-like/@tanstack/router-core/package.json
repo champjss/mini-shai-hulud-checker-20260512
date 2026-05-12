@@ -1,0 +1,5 @@
+{
+  "name": "@tanstack/router-core",
+  "version": "1.170.0",
+  "description": "TEST FIXTURE — synthetic @tanstack/<name>/package.json with a non-listed (clean) version. Used to confirm no false positives."
+}

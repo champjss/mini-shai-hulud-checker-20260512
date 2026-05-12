@@ -1,0 +1,29 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+  .:
+    dependencies:
+      '@tanstack/react-router':
+        specifier: 1.169.5
+        version: 1.169.5
+      '@tanstack/router-core':
+        specifier: 1.169.8
+        version: 1.169.8
+
+packages:
+
+  '@tanstack/react-router@1.169.5':
+    resolution: {integrity: sha512-FIXTURE-PLACEHOLDER}
+
+  '@tanstack/router-core@1.169.8':
+    resolution: {integrity: sha512-FIXTURE-PLACEHOLDER}
+
+snapshots:
+
+  '@tanstack/react-router@1.169.5': {}
+
+  '@tanstack/router-core@1.169.8': {}

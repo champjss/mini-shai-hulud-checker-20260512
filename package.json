@@ -1,0 +1,29 @@
+{
+  "name": "mini-shai-hulud-checker",
+  "version": "0.1.0",
+  "description": "CLI to detect TanStack packages and router_init.js files compromised by the 2026-05 Mini Shai-Hulud supply-chain attack.",
+  "type": "module",
+  "bin": {
+    "mini-shai-hulud": "dist/cli.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node scripts/postbuild-copy-advisory.mjs",
+    "check-project": "node dist/cli.js check-project",
+    "check-project:packages": "node dist/cli.js check-project:packages",
+    "check-project:files": "node dist/cli.js check-project:files",
+    "check-global": "node dist/cli.js check-global",
+    "update:affected": "node scripts/update-affected-packages.mjs",
+    "pretest": "npm run build",
+    "test": "node --test --test-concurrency=1 test/*.test.mjs",
+    "format": "biome check --write .",
+    "lint": "biome check ."
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.4.15",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.6.0"
+  }
+}

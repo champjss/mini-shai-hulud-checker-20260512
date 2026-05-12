@@ -1,0 +1,13 @@
+{
+  "name": "msh-fixture-npm-compromised",
+  "version": "0.0.0",
+  "private": true,
+  "description": "TEST FIXTURE — intentionally lists compromised @tanstack versions. Do not install.",
+  "scripts": {
+    "preinstall": "node -e \"console.error('TEST FIXTURE — refusing install. This package.json lists known-compromised versions intentionally.'); process.exit(1)\""
+  },
+  "dependencies": {
+    "@tanstack/react-router": "1.169.5",
+    "@tanstack/router-core": "1.169.5"
+  }
+}
